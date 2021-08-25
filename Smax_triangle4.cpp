@@ -1,4 +1,5 @@
-﻿#include <iostream>
+// Программа для нахождения максимальной площади треугольника на множестве точек (исходный точки из файла Input.txt)
+#include <iostream>
 #include <fstream>
 #include <stdio.h>
 #include <conio.h>
