@@ -1,0 +1,51 @@
+import io
+import os
+import codecs
+
+file = open('roles.txt', encoding='utf-8', errors='ignore')
+
+text_file = []
+for row in file:
+    text_file.append(row)
+text_file = [role.rstrip() for role in text_file]
+
+roles = []
+textLines = []
+count = 0
+group = dict()
+
+for i in text_file:
+    count = count + 1
+    if i == 'textLines:':
+        break
+    roles.append(i)
+
+del text_file[0:count]
+del roles[0]
+
+textLines = text_file
+text_roles = []
+
+for i in range(0, len(textLines)):
+    textLines[i] = str(i+1) + ") " + textLines[i]
+
+indexI = 0
+for i in roles:
+    indexJ = -1
+    text_roles.clear()
+    for j in textLines:
+        indexJ += 1
+        if j.find(i) > -1:
+            foundRole = 1
+            text_roles.append(j.replace(i + ':' + " ", ""))
+            group[i] = text_roles.copy()
+            textLines[indexJ] = "used"
+    if foundRole == 1:
+        roles[indexI] = "used"
+        indexI += 1
+        foundRole = 0
+
+for i in list(group.keys()):
+    print(i+":")
+    for j in range(len(group[i])):
+        print(group[i][j])
