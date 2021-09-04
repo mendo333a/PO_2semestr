@@ -1,0 +1,12 @@
+import json
+import random
+
+dannie = {}
+logins = ("mendo333a", "vanekrus", "mizhgen", "alex87087", "Arseniy", "Andrew")
+
+for i in range(0, 6):
+    dannie[str(logins[i])] = {"Last Login Time": (str(random.randint(00, 24)) + ":" + str(random.randint(00, 60))+ ":" + str(random.randint(00, 60))), "Last Login Date": (str(random.randint(00, 30)) + "." + str(random.randint(1, 12)) + "." + str(random.randint(2021, 2021))), "Residence Time": (str(random.randint(1, 24)) + ":" + str(random.randint(0, 60))+ ":" + str(random.randint(0, 60)))}
+  
+with open("output.json", "w", encoding = "utf-8") as output:
+    json.dump(dannie, output, ensure_ascii = False, indent = 2)
+  
