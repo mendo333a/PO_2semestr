@@ -9,4 +9,3 @@ for i in range(0, 6):
   
 with open("output.json", "w", encoding = "utf-8") as output:
     json.dump(dannie, output, ensure_ascii = False, indent = 2)
-  
